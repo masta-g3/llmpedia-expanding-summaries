@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLMpedia Expandable Summaries</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+</head>
+<body data-theme="light">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </button>
+    
+    <header>
+        <h1>LLMpedia</h1>
+        <div class="subtitle">Expandable Research Summaries</div>
+    </header>
+
+    <main>
+        <div class="paper-controls">
+            <div class="view-toggle">
+                <button class="view-toggle-btn active" id="dropdown-view">Dropdown</button>
+                <button class="view-toggle-btn" id="list-view">List View</button>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" id="paper-search" placeholder="Search papers by title, author...">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>
+            
+            <div class="paper-selection">
+                <select id="paper-selector">
+                    <option value="" disabled selected>Select a research paper</option>
+                    <!-- Papers will be populated dynamically -->
+                </select>
+                <button class="browse-btn" id="browse-papers">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="8" y1="6" x2="21" y2="6"></line>
+                        <line x1="8" y1="12" x2="21" y2="12"></line>
+                        <line x1="8" y1="18" x2="21" y2="18"></line>
+                        <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                        <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                        <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                    </svg>
+                    Browse
+                </button>
+            </div>
+            
+            <div class="papers-list" id="papers-list">
+                <!-- Papers list will be populated dynamically -->
+            </div>
+        </div>
+
+        <div class="summary-container">
+            <div class="paper-meta">
+                <h2 id="paper-title"></h2>
+                <div id="paper-authors"></div>
+                <div id="paper-date"></div>
+                <div id="paper-venue" class="paper-venue"></div>
+                <!-- Citation information -->
+                <div class="paper-citation-container" style="display: none;">
+                    <div id="paper-citations" class="paper-citations"></div>
+                    <div id="influential-citations" class="influential-citations"></div>
+                </div>
+            </div>
+
+            <div class="summary-control">
+                <span class="slider-label">Summary Detail</span>
+                <div class="slider-container">
+                    <span class="slider-min">Concise</span>
+                    <input type="range" id="detail-slider" min="1" max="7" value="1" step="1">
+                    <span class="slider-max">Detailed</span>
+                </div>
+                <div class="paragraph-indicator">
+                    <span id="paragraph-count">1</span><span>paragraph(s)</span>
+                </div>
+            </div>
+
+            <div id="summary-content" class="summary-content"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>LLMpedia — Expandable Research Summaries</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

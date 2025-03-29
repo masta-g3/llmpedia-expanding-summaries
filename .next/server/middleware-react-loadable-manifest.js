@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"pages/paper/[id]/index.js -> ../../../components/SummaryLoader\":{\"id\":\"pages/paper/[id]/index.js -> ../../../components/SummaryLoader\",\"files\":[\"static/chunks/_pages-dir-browser_components_SummaryLoader_js.js\"]}}"
