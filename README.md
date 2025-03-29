@@ -2,8 +2,6 @@
 
 A lightweight, modern web interface for exploring research paper summaries at adjustable levels of detail. This application allows users to select academic papers and view their summaries at different levels of conciseness, with smooth transitions between levels.
 
-![LLMpedia Interface](https://i.imgur.com/placeholder.png) <!-- Replace with actual screenshot when available -->
-
 ## Features
 
 - **Interactive Summary Control**: Adjust summary length using a slider, with real-time expansion/contraction
